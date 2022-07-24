@@ -36,12 +36,6 @@ The running scripts for training and evaluation for base method without our prop
 we provided the scripts for the remaining version which integrate CG-IMIF framework with base method at ```scripts_resnet50```. Note that it is compulsory to iterate the
 seed parameters with similar values across methods for fair comparision.
 
-## Results
-We conduct comprehensive experiments on real-world incremental pill image classification dataset, namely VAIPE-PCIL, and find that the CG-IMIF consistently outperforms several state-of-the-art methods by a large margin. More importantly, our method demonstrates its efficacy in terms of both average accuracy and average forgetting rate across a variety of task settings.
-
-![Results1](/figures/results_comparison.png)
-![Results2](/figures/results.png)
-
 ## Acknowledgement
 This work would not be fully achieved without constructive comments and arguments from my team VAIPE.
 
