@@ -21,6 +21,13 @@ environments, please refer to the original instructions from []
 Most of current pill image classification dataset lacks of the authentic images describing the practical usage of pill in real-world scenario. In our project,
 we released a novel dataset namely VAIPE-Pill. The formal description of the VAIPE-Pill dataset and further information about other dataset can be found at ...
 
+### Method
+We define a multi-stream class incremental learning model M as a combination of three key components: 1) a single stream base method X, 2) an additional stream of information Y, and 3) a method of fusing stream Z. At this point, Y serves as a piece of additional domain information that gives cues to the learning model apart from RGB images. Z presents a fusion mechanism that enables method M to incorporate additional information stream Y into the incremental learning process. From this decomposition, our CG-IMIF replaces: 1) the representative stream Y with color-specific information, and 2) the fusion
+technique Z with the proposed IMIF.
+
+![Method](/figures/IMIF.png)
+
+
 ## Training and Evaluation
 Training and testing are conducted for the base method X with and without our proposed framework CG-IMIF. The experiments are performed with similar settings for both
 version for fair comparison. 
