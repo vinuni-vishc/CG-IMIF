@@ -10,6 +10,8 @@ propose a novel incremental multi-stream intermediate fusion framework enabling 
 methods. From this framework, we consider color-specific information of pill images as a guidance stream and devise an approach, namely “Color Guidance with Multi-stream intermediate fusion”(CG-IMIF) for solving
 CIL pill image classification task.
 
+![General Pipeline](/figures/pipeline_overview.png)
+
 ## Usage 
 
 The implementation is employed from available CIL framework []. We inherit the base implementation and modify various modules for our proposed method. For setting up
