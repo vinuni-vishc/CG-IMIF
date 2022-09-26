@@ -1,7 +1,7 @@
 # CG-IMIF: Multi-stream Fusion for Class Incremental Learning in Pill Image Classification
 
 
-An official implementation for my research work "Multi-stream Class Incremental Learning for Pill Image Classification"  at VinUni-Illinois  Smart Health Center
+An official implementation for our paper "Multi-stream Class Incremental Learning for Pill Image Classification"  accepted at ACCV2022.
 
 ## Introduction
 
