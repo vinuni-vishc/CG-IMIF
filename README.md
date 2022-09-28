@@ -18,7 +18,7 @@ namely “Color Guidance with Multi-stream intermediate fusion”(CGIMIF) for so
 dataset, namely VAIPE-PCIL, and find that the CG-IMIF consistently
 outperforms several state-of-the-art methods by a large margin in different task settings.
 
-![General Pipeline](/figures/pipeline_overview.pdf)
+![General Pipeline](/figures/pipeline_overview.png)
 
 ## Dependencies and Installation
 
@@ -61,7 +61,7 @@ Two fusion techniques: early fusion, and intermediate fusion are investigated an
 From the aforementioned decomposition, our CG-IMIF replaces:1) the representative stream Y with color-specific information, and 2) the fusion
 technique Z with the proposed IMIF
 
-![General Pipeline](/figures/X-CG-IMIF.pdf)
+![CG-IMIF](/figures/X-CG-IMIF.png)
 
 Figure 2: Our proposed CG-IMIF architecture composes of: 1) color histogram
 feature extraction (orange block), and 2) intermediate fusion framework (purple
@@ -92,6 +92,23 @@ do
 
 done
 ```
+
+## Results
+We evaluate our proposed CG-IMIF approach and report the overall performance in comparison with several state-of-the-art approaches. Experimental results show that most of the state-of-the-art approaches attached with our proposed IMIF tool and color-specific information as additional stream help
+to achieve consistent improvements over task settings. The setting consists of
+three tasks in total where the number of categories is uniformly distributed
+for 5, 10, and 15 tasks.
+
+![accuracy](/figures/results1.png)
+
+Figure 3: Incremental accuracy for different task settings among the original
+version and our method CG-IMIF.
+
+![ForgettingRate](/figures/results2.png)
+
+Figure 4: Incremental accuracy for different task settings among the original
+version and our method CG-IMIF.
+
 
 ## Acknowledgement
 Our CG-IMIF implementation is inspried from [FACIL library](https://github.com/mmasana/FACIL). Also, this research would not fulfilled without support of VAIPE team and VinUni-Illinois Smart Health Center.
