@@ -19,7 +19,7 @@ outperforms several state-of-the-art methods by a large margin in different task
 
 ## Dependencies and Installation
 
-- Python >= 3.8 (Recommend to use [Anaconda](https://www.anaconda.com/download/#linux)
+- Python >= 3.8 (Recommend to use [Anaconda](https://www.anaconda.com/download/#linux))
 - [PyTorch >= 1.7](https://pytorch.org/)
 
 ### Installation
@@ -31,7 +31,7 @@ conda activate CG_IMIF
 
 ## Dataset Preparation
 ### VAIPE: A Large-scale and Real-World Open Pill Image Dataset for Visual-based Medicine Inspection
-This dataset was developed by our [VAIPE team](https://vaipe.org/) to facilitate AI research in pill and prescription images. In this research, we derive a different data version, namely VAIPE-PCIL (VAIPE Pill Class Incremental Learning) for empiricial study of incremental learning behaviour on pill image classification problem. We have already prepared and processed VAIPE-PCIL, and it can be accessed [here](link_to_dataset)
+This dataset was developed by our [VAIPE team](https://vaipe.org/) to facilitate AI research in pill and prescription images. In this research, we derive a different data version, namely VAIPE-PCIL (VAIPE Pill Class Incremental Learning) for empiricial study of incremental learning behaviour on pill image classification problem. We have already prepared and processed VAIPE-PCIL, and it can be accessed [here](https://drive.google.com/file/d/14LfFl2ASf7xw97aP_kmHM859sIBiV0ty/view?usp=sharing)
 
 ## Decomposition of Multi-stream Pill CIL
 We define a multi-stream class incremental learning model M as a combination
