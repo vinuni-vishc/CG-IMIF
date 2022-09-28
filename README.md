@@ -5,38 +5,96 @@ An official implementation for our paper "Multi-stream Class Incremental Learnin
 
 ## Introduction
 
-In this work, we address the common pill image classification problem with a novel learning capability: Class incremental learning (CIL). Specifically, we 
-propose a novel incremental multi-stream intermediate fusion framework enabling incorporation of an additional guidance information stream that best matches the domain of the problem into various state-of-the-art CIL
-methods. From this framework, we consider color-specific information of pill images as a guidance stream and devise an approach, namely “Color Guidance with Multi-stream intermediate fusion”(CG-IMIF) for solving
-CIL pill image classification task.
+Classifying pill categories from real-world images is crucial for various smart healthcare applications. Although existing approaches
+in image classification might achieve a good performance on fixed pill
+categories, they fail to handle novel instances of pill categories that are
+frequently presented to the learning algorithm. To this end, a trivial solution is to train the model with novel classes. However, this may result
+in a phenomenon known as catastrophic forgetting, in which the system
+forgets what it learned in previous classes. In this paper, we address
+this challenge by introducing the class incremental learning (CIL) ability to traditional pill image classification systems. Specifically, we propose a novel incremental multi-stream intermediate fusion framework enabling incorporation of an additional guidance information stream that
+best matches the domain of the problem into various state-of-the-art
+CIL methods. From this framework, we consider color-specific information of pill images as a guidance stream and devise an approach,
+namely “Color Guidance with Multi-stream intermediate fusion”(CGIMIF) for solving CIL pill image classification task. We conduct comprehensive experiments on real-world incremental pill image classification
+dataset, namely VAIPE-PCIL, and find that the CG-IMIF consistently
+outperforms several state-of-the-art methods by a large margin in different task settings.
 
-![General Pipeline](/figures/pipeline_overview.png)
+![General Pipeline](/figures/main_figure.png)
 
-## Usage 
+## Dependencies and Installation
 
-The implementation is employed from available CIL framework []. We inherit the base implementation and modify various modules for our proposed method. For setting up
-environments, please refer to the original instructions from []
+- Python >= 3.8 (Recommend to use [Anaconda](https://www.anaconda.com/download/#linux)
+- [PyTorch >= 1.7](https://pytorch.org/)
 
-### Dataset
-Most of current pill image classification dataset lacks of the authentic images describing the practical usage of pill in real-world scenario. In our project,
-we released a novel dataset namely VAIPE-Pill. The formal description of the VAIPE-Pill dataset and further information about other dataset can be found at ...
+### Installation
 
-### Method
-We define a multi-stream class incremental learning model M as a combination of three key components: 1) a single stream base method X, 2) an additional stream of information Y, and 3) a method of fusing stream Z. At this point, Y serves as a piece of additional domain information that gives cues to the learning model apart from RGB images. Z presents a fusion mechanism that enables method M to incorporate additional information stream Y into the incremental learning process. From this decomposition, our CG-IMIF replaces: 1) the representative stream Y with color-specific information, and 2) the fusion
-technique Z with the proposed IMIF.
+```bash
+conda env create CG_IMIF -f environment.yml
+conda activate CG_IMIF
+```
 
-![Method](/figures/IMIF.png)
+## Dataset Preparation
+### VAIPE: A Large-scale and Real-World Open Pill Image Dataset for Visual-based Medicine Inspection
+This dataset was developed by our [VAIPE team](https://vaipe.org/) to facilitate AI research in pill and prescription images. In this research, we derive a different data version, namely VAIPE-PCIL (VAIPE Pill Class Incremental Learning) for empiricial study of incremental learning behaviour on pill image classification problem. We have already prepared and processed VAIPE-PCIL, and it can be accessed [here](link_to_dataset)
 
+## Decomposition of Multi-stream Pill CIL
+We define a multi-stream class incremental learning model M as a combination
+of three key components: 
+1) Single stream base method X, 
+2) Additional stream of information Y
+3) Method of fusing stream Z.
+
+```
+M = Base method X + Feature stream Y + Fusion mechanism Z
+```
+
+### Base method X
+We aim to exploit the capability of exemplar-based CIL methods by attaching these to our proposed
+framework. Therefore, we chose a few representative methods such as End-to-End Incremental Learning, BiC, 
+
+### Feature stream Y
+Edge, and color histogram are two main features that we aim to investigate the effect in a pill incremental learning system. For further infomation about how to obtain
+these features, we recommend to take a look at ```src/datasets/base_dataset.py``` and ```benchmarked_pillCIL_data/create_edge_data_folder.py```
+
+### Fusion mechanism Z
+Two fusion techniques: early fusion, and intermediate fusion are investigated and combined with previous feature stream Y to compare the effectiveness of tackling catastrophic forgetting effect. All of related scripts for running early and intermediate fusion can be found in ```scripts_resnet50_base``` and ```scripts_resnet50_ours```
+
+From the aforementioned decomposition, our CG-IMIF replaces:1) the representative stream Y with color-specific information, and 2) the fusion
+technique Z with the proposed IMIF
+
+![General Pipeline](/figures/CG-IMIF.png)
+
+Figure 2: Our proposed CG-IMIF architecture composes of: 1) color histogram
+feature extraction (orange block), and 2) intermediate fusion framework (purple
+block) to incorporate additional information stream.
 
 ## Training and Evaluation
-Training and testing are conducted for the base method X with and without our proposed framework CG-IMIF. The experiments are performed with similar settings for both
-version for fair comparison. 
+These two phases can be executed via our provided bash file in ```scripts_resnet50_base``` and ```scripts_resnet50_ours```. An example of executing training
+and evaluation script with: LUCIR base method, color histogram stream, and intermediate fusion can be:
 
-The running scripts for training and evaluation for base method without our proposed framework CG-IMIF can be found at ```scripts_resnet50_base```. On the other hand,
-we provided the scripts for the remaining version which integrate CG-IMIF framework with base method at ```scripts_resnet50```. Note that it is compulsory to iterate the
-seed parameters with similar values across methods for fair comparision.
+```
+#!/bin/bash
+
+echo "Running lucir on Pill Base dataset"
+
+
+for NUMTASKS in 5 10 15
+do
+    echo "NUMTASKS: $NUMTASKS"
+    python src/main_incremental_intermediate_fusion.py --approach lucir_multistream_histo \
+                                    --datasets pill_base_x_multistream_true_norm \
+                                    --exp-name refactor_4_exemplar \
+                                    --num-exemplars-per-class 4 \
+                                    --network resnet50 \
+                                    --num-tasks $NUMTASKS \
+                                    --results-path ../new_results_lucir \
+                                    --seed 4 \
+                                    --gpu 2
+
+done
+```
 
 ## Acknowledgement
-This work would not be fully achieved without constructive comments and arguments from my team VAIPE.
+Our CG-IMIF implementation is inspried from [FACIL library](https://github.com/mmasana/FACIL). Also, this research would not fulfilled without support of VAIPE team and VinUni-Illinois Smart Health Center.
 
-##
+## Contact
+If you have any concerns or support need on this repository, please drop me an email at ```nguyentrongtung11101999@gmail.com```
