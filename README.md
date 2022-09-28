@@ -8,10 +8,10 @@ categories, they fail to handle novel instances of pill categories that are
 frequently presented to the learning algorithm. To this end, a trivial solution is to train the model with novel classes. However, this may result
 in a phenomenon known as catastrophic forgetting, in which the system
 forgets what it learned in previous classes. In this paper, we address
-this challenge by introducing the class incremental learning (CIL) ability to traditional pill image classification systems. Specifically, we propose a novel incremental multi-stream intermediate fusion framework enabling incorporation of an additional guidance information stream that
+this challenge by introducing the class incremental learning (CIL) ability to traditional pill image classification systems. Specifically, we propose a novel incremental multi-stream intermediate fusion framework enabling incorporation of an additional guidance information stream that
 best matches the domain of the problem into various state-of-the-art
 CIL methods. From this framework, we consider color-specific information of pill images as a guidance stream and devise an approach,
-namely “Color Guidance with Multi-stream intermediate fusion”(CGIMIF) for solving CIL pill image classification task. We conduct comprehensive experiments on real-world incremental pill image classification
+namely “Color Guidance with Multi-stream intermediate fusion”(CGIMIF) for solving CIL pill image classification task. We conduct comprehensive experiments on real-world incremental pill image classification
 dataset, namely VAIPE-PCIL, and find that the CG-IMIF consistently
 outperforms several state-of-the-art methods by a large margin in different task settings.
 
