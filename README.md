@@ -18,7 +18,7 @@ namely “Color Guidance with Multi-stream intermediate fusion”(CGIMIF) for so
 dataset, namely VAIPE-PCIL, and find that the CG-IMIF consistently
 outperforms several state-of-the-art methods by a large margin in different task settings.
 
-![General Pipeline](/figures/main_figure.png)
+![General Pipeline](/figures/pipeline_overview.pdf)
 
 ## Dependencies and Installation
 
@@ -61,7 +61,7 @@ Two fusion techniques: early fusion, and intermediate fusion are investigated an
 From the aforementioned decomposition, our CG-IMIF replaces:1) the representative stream Y with color-specific information, and 2) the fusion
 technique Z with the proposed IMIF
 
-![General Pipeline](/figures/CG-IMIF.png)
+![General Pipeline](/figures/X-CG-IMIF.pdf)
 
 Figure 2: Our proposed CG-IMIF architecture composes of: 1) color histogram
 feature extraction (orange block), and 2) intermediate fusion framework (purple
