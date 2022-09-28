@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Running eeil on Pill Base dataset"
+echo "Running lucir on Pill Base dataset"
 
 
 # for NUMTASKS in 5 10 15 20

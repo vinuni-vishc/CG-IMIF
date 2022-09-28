@@ -15,6 +15,6 @@ do
                                     --network resnet50 \
                                     --num-tasks $NUMTASKS \
                                     --results-path ../new_results_eeil \
-                                    --seed 3 \
+                                    --seed 4 \
                                     --gpu 1
 done

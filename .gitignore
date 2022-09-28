@@ -1,6 +1,8 @@
 data/
 *.png
 *.pyc
+*.zip
+customized_script/*.pdf
 
 __pycache__/
 
