@@ -108,7 +108,7 @@ version and our method CG-IMIF.
 
 
 ## Acknowledgement
-Our CG-IMIF implementation is inspried from [FACIL library](https://github.com/mmasana/FACIL). Also, this research would not fulfilled without support of VAIPE team and VinUni-Illinois Smart Health Center.
+Our CG-IMIF implementation is inspried from [FACIL library](https://github.com/mmasana/FACIL). Also, this research would not be fulfilled without support of VAIPE team and VinUni-Illinois Smart Health Center.
 
 ## Contact
 If you have any concerns or support need on this repository, please drop me an email at ```nguyentrongtung11101999@gmail.com```
